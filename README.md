@@ -39,8 +39,13 @@ claude
 
 ```bash
 /plugin marketplace add https://github.com/christinetyip/ensue-auto-memory
+```
+
+```bash
 /plugin install ensue-auto-memory
 ```
+
+And restart Claude to load the new plugins.
 
 ## How It Works
 
