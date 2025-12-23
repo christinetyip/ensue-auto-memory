@@ -1,0 +1,24 @@
+{
+  "name": "ensue-auto-memory",
+  "description": "Automatic persistent memory across Claude Code sessions. Remembers your preferences, corrections, and project context without manual intervention.",
+  "owner": {
+    "name": "Ensue",
+    "email": "founders@ensue.dev"
+  },
+  "metadata": {
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "ensue-auto-memory",
+      "description": "Automatic persistent memory that saves preferences, corrections, and project context. Works invisibly in the background.",
+      "source": "./",
+      "strict": false,
+      "category": "productivity",
+      "homepage": "https://ensue.dev",
+      "skills": [
+        "./skills/auto-memory"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "description": "Automatic memory hooks for persistent context across sessions",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/session-start.py",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/user-prompt.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Before ending this session, review the conversation for significant learnings that should be persisted to Ensue memory:\n\n1. **Preferences stated**: Did the user express preferences about code style, tools, workflows, or approaches? (e.g., \"I prefer...\", \"I always...\", \"I like...\")\n\n2. **Corrections made**: Did the user correct your behavior or output? (e.g., \"No, don't do X\", \"Actually, I want Y\", \"Stop doing Z\")\n\n3. **Project decisions**: Were any significant architectural or design decisions made for the current project?\n\n4. **Identity information**: Did the user share information about themselves (name, role, company, etc.)?\n\nIf any significant learnings exist that haven't already been saved, save them now using curl to the Ensue API. Use the key structure: @{ENSUE_USERNAME}/{category}/{subcategory}\n\nCategories: identity/, preferences/, corrections/, projects/{project-name}/\n\nFor each memory, use:\n- description: Short label for the memory\n- value: Verbose, detailed content\n- embed: true\n- embed_source: \"value\"\n\nIf nothing significant to save, simply approve stopping.",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
