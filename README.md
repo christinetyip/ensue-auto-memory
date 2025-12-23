@@ -1,6 +1,6 @@
 # Ensue Auto-Memory
 
-Automatic persistent memory for Claude Code sessions. Remembers your preferences, corrections, and project context across sessions without manual intervention.
+Automatic persistent memory across Claude Code sessions. Remembers your preferences, corrections, and project context across sessions.
 
 ## Features
 
@@ -15,7 +15,7 @@ Automatic persistent memory for Claude Code sessions. Remembers your preferences
 
 ```bash
 # Add the marketplace (if not already added)
-/plugin marketplace add https://github.com/mutable-state-inc/ensue-auto-memory
+/plugin marketplace add https://github.com/christinetyip/ensue-auto-memory
 
 # Install the plugin
 /plugin install ensue-auto-memory
@@ -30,7 +30,14 @@ export ENSUE_API_KEY="your-api-key-here"
 export ENSUE_USERNAME="your-username"
 ```
 
-Get an API key at https://www.ensue-network.ai/dashboard
+Get an API key at https://www.ensue-network.ai/dashboard so memories are saved to your own (private) network, or use this Guest API key: lmn_af9e0d32ae044e5faf084d957da9b60b
+
+If using Guest API key:
+
+```bash
+export ENSUE_API_KEY="lmn_af9e0d32ae044e5faf084d957da9b60b"
+export ENSUE_USERNAME="your-username"
+```
 
 ### 3. Restart Claude Code
 
@@ -84,20 +91,16 @@ Optional environment variables to customize behavior:
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `ENSUE_RELEVANCY_THRESHOLD` | `0.7` | Minimum score for discovered memories (0-1) |
-| `ENSUE_PROJECT_LIMIT` | `5` | Max project memories to load |
+| `ENSUE_PROJECT_LIMIT` | `5` | Max project memories to load (can be increased for long-running tasks) |
 | `ENSUE_PREFERENCES_LIMIT` | `10` | Max preferences to load |
 | `ENSUE_CORRECTIONS_LIMIT` | `5` | Max corrections to load |
 
-## Requirements
-
-- Python 3.7+
-- Claude Code CLI
-- Ensue API key
 
 ## Privacy & Security
 
-- Memories are stored in your Ensue account
-- Only you can access your memories (keys prefixed with your username)
+- Memories are stored on your Ensue network (if you create a new API key at https://www.ensue-network.ai/dashboard)
+- Memories are stored on a public Ensue network if you use the Guest API key
+- Only you and anyone you give access to can access your memories on your network
 - API keys are never logged or exposed
 - Don't store credentials or secrets in memories
 
@@ -113,17 +116,10 @@ Optional environment variables to customize behavior:
 
 2. Check plugin is installed:
    ```bash
-   /plugins
+   /plugin
    ```
 
 3. Restart Claude Code after setting environment variables
-
-### Hook not running?
-
-Run Claude Code in debug mode:
-```bash
-claude --debug
-```
 
 ## Links
 
