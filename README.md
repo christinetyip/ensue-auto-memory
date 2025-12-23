@@ -1,6 +1,6 @@
 # Ensue Auto-Memory
 
-Automatic persistent memory across Claude Code sessions. Remembers your preferences, corrections, and project context across sessions.
+Automatic persistent memory for Claude Code sessions. Remembers your preferences, corrections, and project context across sessions.
 
 ## Features
 
@@ -30,9 +30,9 @@ export ENSUE_API_KEY="your-api-key-here"
 export ENSUE_USERNAME="your-username"
 ```
 
-Get an API key at https://www.ensue-network.ai/dashboard so memories are saved to your own (private) network, or use this Guest API key: lmn_af9e0d32ae044e5faf084d957da9b60b
+Get a free API key at https://www.ensue-network.ai/dashboard so memories are saved to your own (private) network.
 
-If using Guest API key:
+Alternatively, use a Guest API key:
 
 ```bash
 export ENSUE_API_KEY="lmn_af9e0d32ae044e5faf084d957da9b60b"
@@ -50,7 +50,7 @@ claude
 
 ### At Session Start
 
-The plugin automatically loads:
+While you're using Claude Code, the plugin automatically saves and loads:
 - Your identity (name, role, etc.)
 - Your preferences (code style, tools, workflows)
 - Your corrections (things you've told Claude NOT to do)
@@ -98,9 +98,9 @@ Optional environment variables to customize behavior:
 
 ## Privacy & Security
 
-- Memories are stored on your Ensue network (if you create a new API key at https://www.ensue-network.ai/dashboard)
+- Memories are stored on your own Ensue network if you create a new API key at https://www.ensue-network.ai/dashboard
 - Memories are stored on a public Ensue network if you use the Guest API key
-- Only you and anyone you give access to can access your memories on your network
+- Only you and anyone you grant access to can access the memories on your network (set permissions in the dashboard)
 - API keys are never logged or exposed
 - Don't store credentials or secrets in memories
 
