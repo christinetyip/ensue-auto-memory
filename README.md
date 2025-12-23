@@ -11,17 +11,7 @@ Automatic persistent memory for Claude Code sessions. Remembers your preferences
 
 ## Quick Start
 
-### 1. Install the Plugin
-
-```bash
-# Add the marketplace (if not already added)
-/plugin marketplace add https://github.com/christinetyip/ensue-auto-memory
-
-# Install the plugin
-/plugin install ensue-auto-memory
-```
-
-### 2. Set Environment Variables
+### 1. Set Environment Variables
 
 Add to your shell profile (`~/.zshrc`, `~/.bashrc`, etc.):
 
@@ -39,11 +29,17 @@ export ENSUE_API_KEY="lmn_af9e0d32ae044e5faf084d957da9b60b"
 export ENSUE_USERNAME="your-username"
 ```
 
-### 3. Restart Claude Code
+### 2. Start Claude Code
 
 ```bash
-# Exit and restart to load the plugin
 claude
+```
+
+### 3. Install the Plugin
+
+```bash
+/plugin marketplace add https://github.com/christinetyip/ensue-auto-memory
+/plugin install ensue-auto-memory
 ```
 
 ## How It Works
